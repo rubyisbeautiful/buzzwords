@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Word:</strong>
+  <%= @buzzword.word %>
+</p>
+
+<p>
+  <strong>Votes:</strong>
+  <%= @buzzword.votes %>
+</p>
+
+<%= link_to 'Edit', edit_buzzword_path(@buzzword) %> |
+<%= link_to 'Back', buzzwords_path %>

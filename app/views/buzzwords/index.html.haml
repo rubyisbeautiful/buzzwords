@@ -1,0 +1,13 @@
+%table.table.table-striped
+  %thead
+  %tbody
+    - @buzzwords.each do |buzzword|
+      %tr
+        %td
+          %p.lead= buzzword.word
+        %td
+          %p.lead= buzzword.votes
+          - # %td= button_to 'Said it!', { controller: :buzzword_votes, action: :create, buzzword: buzzword, method: :post, remote: true }, { class: 'btn btn-primary btn-large' }
+          %td= link_to 'Said it!', buzzword_votes_path(buzzword.word), method: :post, remote: true
+%br
+= link_to '+ buzzword', new_buzzword_path

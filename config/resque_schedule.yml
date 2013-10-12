@@ -1,0 +1,5 @@
+BuzzwordVoteWorker:
+  class: BuzzwordVoteWorker
+  queue: BuzzwordVote
+  every:
+    - "1s"
