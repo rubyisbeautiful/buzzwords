@@ -8,7 +8,7 @@ describe "buzzwords/edit" do
     ))
   end
 
-  it "renders the edit buzzword form" do
+  xit "renders the edit buzzword form" do
     render
 
     # Run the generator again with the --webrat flag if you want to use webrat matchers
