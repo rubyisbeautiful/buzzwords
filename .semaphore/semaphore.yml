@@ -1,0 +1,30 @@
+version: v1.0
+name: Buzzwords Pipeline
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+
+blocks:
+
+  - name: "Unit tests"
+    task:
+      env_vars:
+        - name: RAILS_ENV
+          value: test
+        - name: REDIS_URL
+          value: redis://0.0.0.0:6379/0
+      jobs:
+      - name: RSpec
+        commands:
+          - checkout
+          - sem-version ruby $(cat .ruby-version)
+          - cache restore $(checksum Gemfile.lock)
+          - sudo apt-get update
+          - sudo apt-get install -y libmysqlclient-dev
+          - gem install bundler --no-doc
+          - bundle install --deployment --path vendor/bundle
+          - cache store $(checksum Gemfile.lock) vendor/bundle
+          - sem-service start redis
+          - bundle exec rake db:create db:load_schema
+          - bundle exec rake spec
