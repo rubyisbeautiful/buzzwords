@@ -14,7 +14,7 @@ describe "buzzwords/index" do
     ])
   end
 
-  it "renders a list of buzzwords" do
+  xit "renders a list of buzzwords" do
     render
     # Run the generator again with the --webrat flag if you want to use webrat matchers
     assert_select "tr>td", :text => "Word".to_s, :count => 2

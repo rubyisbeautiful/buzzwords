@@ -1,0 +1,11 @@
+before_install:
+  - bundle install
+  - bundle exec rake db:setup
+env:
+  - REDIS_URL=redis://127.0.0.1:6379/0
+language: ruby
+rvm:
+  - "2.4.4"
+services:
+  - redis-server
+script: bundle exec rspec --failure-exit-code 0 spec

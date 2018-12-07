@@ -1,40 +1,30 @@
 source 'https://rubygems.org'
 
+ruby '2.4.4'
+
 gem 'bootstrap-sass'
-gem 'coffee-rails', '~> 4.0.0'
+gem 'coffee-rails'
 gem 'haml'
 gem 'html2haml'
 gem 'jquery-rails'
-gem 'rails', '4.0.0'
+gem 'rails', '~> 4'
+gem 'rake', '< 11.0'
 gem 'redis'
 gem 'redis-namespace'
 gem "resque"
-gem 'resque-scheduler', require: 'resque_scheduler'
+gem 'resque-scheduler'
 gem 'resque-web', require: 'resque_web'
-gem 'sass-rails', '~> 4.0.0'
-#gem 'sass-twitter-bootstrap'
+gem 'sass-rails'
 gem 'sqlite3'
-gem 'uglifier', '>= 1.3.0'
-#gem 'turbolinks'
+gem 'therubyracer'
+gem 'uglifier'
 gem 'unicorn'
 
-
-group :doc do
-  # bundle exec rake doc:rails generates the API under doc/api.
-  gem 'sdoc', require: false
-end
-
-
 group :development, :test do
-  gem 'debugger'
+  gem 'byebug'
   gem 'guard'
   gem 'guard-bundler'
   gem 'guard-rspec'
-  gem 'guard-zeus'
-  gem "rb-inotify", require: false
-  gem "rb-fchange", require: false
-  gem 'rb-fsevent', require: false
-  gem 'rspec'
-  gem 'rspec-rails'
-  gem 'simplecov'
+  gem 'rspec', '~> 2.99.0'
+  gem 'rspec-rails', '~> 2.99.0'
 end
